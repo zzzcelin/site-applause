@@ -30,16 +30,6 @@ const teamMembers: TeamMember[] = [
     tags: ['Direção de Arte', 'Conteúdo', 'Design'],
     image: 'https://images.pexels.com/photos/27015641/pexels-photo-27015641.jpeg?auto=compress&cs=tinysrgb&h=800&w=600',
   },
-  {
-    name: 'Rafael Esteves',
-    role: 'Head de Performance',
-    bio: [
-      'Especialista em crescimento digital orientado a dados, Rafael já escalou operações de mídia para mais de 50 marcas em diferentes verticais.',
-      'Combina modelagem estatística com execução ágil para maximizar retorno sobre investimento em cada canal, do tráfego pago ao função de conversão.',
-    ],
-    tags: ['Tráfego Pago', 'Analytics', 'Growth'],
-    image: 'https://images.pexels.com/photos/39974547/pexels-photo-39974547.jpeg?auto=compress&cs=tinysrgb&h=800&w=600',
-  },
 ];
 
 export default function TeamCarousel() {

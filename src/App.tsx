@@ -114,6 +114,14 @@ function App() {
 
         <section id="about" className="about section-pad">
           <div className="section-label"><span>02</span><span>Sobre nós</span></div>
+          <div className="about-grid">
+            <h2>Parceiros para<br /><span>crescer com propósito.</span></h2>
+            <div className="about-text">
+              <p className="large-copy">A Applause Marketing é a parceira estratégica de marcas que querem avançar com clareza, relevância e impacto.</p>
+              <p>Unimos estratégia, criatividade e inteligência de dados para construir caminhos consistentes de crescimento – do posicionamento à performance.</p>
+              <a className="text-link" href="#contact">CONHEÇA NOSSO JEITO <ArrowUpRight size={17} strokeWidth={1.3} /></a>
+            </div>
+          </div>
           <TeamCarousel />
         </section>
 
