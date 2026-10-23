@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Menu, X, Instagram, Linkedin, Music2 } from 'lucide-react';
 import logoAgencia from './logo_png.png';
+import ContactForm from '@/components/ContactForm';
 
 
 const projects = [
@@ -74,9 +75,12 @@ function App() {
       </header>
 
       <div className={`menu-panel ${menuOpen ? 'is-open' : ''}`}>
-        <button className="menu-close" type="button" onClick={closeMenu} aria-label="Fechar menu">
-          <X size={22} strokeWidth={1.4} />
-        </button>
+        <div className="menu-top">
+          <img src={logoAgencia} alt="Applause Marketing" className="menu-logo" />
+          <button className="menu-close" type="button" onClick={closeMenu} aria-label="Fechar menu">
+            <X size={22} strokeWidth={1.4} />
+          </button>
+        </div>
         <p className="eyebrow">Navegação / 001</p>
         <nav className="menu-links" aria-label="Menu principal">
           <a href="#about" onClick={closeMenu}>Sobre a Applause <span>01</span></a>
@@ -84,11 +88,10 @@ function App() {
           <a href="#contact" onClick={closeMenu}>Contato <span>03</span></a>
         </nav>
         <div className="menu-footer">
-  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc400] transition-colors duration-300">Instagram</a>
-  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc400] transition-colors duration-300">LinkedIn</a>
-  <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc400] transition-colors duration-300">Behance</a>
-</div>
-
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram"><Instagram size={22} strokeWidth={1.5} /></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn"><Linkedin size={22} strokeWidth={1.5} /></a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Behance"><Music2 size={22} strokeWidth={1.5} /></a>
+        </div>
       </div>
 
       <main id="top">
@@ -133,9 +136,26 @@ function App() {
         </section>
 
         <section id="contact" className="contact section-pad">
-          <div className="contact-inner"><p className="eyebrow">05 / Vamos conversar</p><h2 className="text-[min(8vw,200px)] font-medium leading-[1.1] tracking-tight">Pronto para elevar<br /><em>o nível do seu negócio?</em></h2>
-<a href="mailto:contato@applause.com" className="contact-link">contato@applause.com <ArrowUpRight size={26} strokeWidth={1.2} /></a></div>
-          <div className="contact-bottom"><span>São Paulo · Brasil</span><span>© 2026 Applause Marketing</span><span>Estratégia que merece aplauso</span></div>
+          <div className="contact-grid">
+            <div className="contact-copy-col">
+              <p className="eyebrow">05 / Vamos conversar</p>
+              <h2 className="contact-headline">Vamos criar uma<br /><em>estratégia de verdade?</em></h2>
+              <p className="contact-support-copy">Está na hora de parar de fazer marketing comum e começar a construir resultados reais.</p>
+              <div className="contact-seal">
+                <span className="contact-seal-dot" />
+                <span>Atendimento digital em todo território nacional</span>
+              </div>
+              <a href="mailto:contato@applause.com" className="contact-link">contato@applause.com <ArrowUpRight size={26} strokeWidth={1.2} /></a>
+            </div>
+            <div className="contact-form-col">
+              <ContactForm />
+            </div>
+          </div>
+          <div className="contact-bottom">
+            <span>São Paulo · Brasil</span>
+            <span>© 2026 Applause Marketing</span>
+            <span>Estratégia que merece aplauso</span>
+          </div>
         </section>
       </main>
     </div>
