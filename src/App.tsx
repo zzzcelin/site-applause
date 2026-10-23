@@ -147,7 +147,9 @@ function App() {
                 <span className="contact-seal-dot" />
                 <span>Atendimento digital em todo território nacional</span>
               </div>
-              <a href="mailto:contato@applause.com" className="contact-link contact-link-below">contato@applause.com <ArrowUpRight size={26} strokeWidth={1.2} /></a>
+              <div className="contact-email">
+                <a href="mailto:contato@applause.com" className="contact-link">contato@applause.com <ArrowUpRight size={26} strokeWidth={1.2} /></a>
+              </div>
             </div>
             <div className="contact-form-col">
               <ContactForm />
