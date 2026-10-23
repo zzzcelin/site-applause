@@ -62,7 +62,16 @@ export default function TeamCarousel() {
 
   return (
     <div className="team-carousel">
-      <div className="team-slide" key={current}>
+      <div className="team-stage">
+        <button
+          className="team-arrow team-arrow-prev"
+          onClick={() => handleManualNav('prev')}
+          aria-label="Membro anterior"
+          type="button"
+        >
+          <ChevronLeft size={22} strokeWidth={1.5} />
+        </button>
+        <div className="team-slide" key={current}>
         <div className="team-photo-col">
           <div className="team-photo-wrap">
             <img src={member.image} alt={member.name} className="team-photo" />
@@ -81,26 +90,9 @@ export default function TeamCarousel() {
             ))}
           </div>
         </div>
-      </div>
-      <div className="team-controls">
-        <button
-          className="team-arrow"
-          onClick={() => handleManualNav('prev')}
-          aria-label="Membro anterior"
-          type="button"
-        >
-          <ChevronLeft size={22} strokeWidth={1.5} />
-        </button>
-        <div className="team-indicators">
-          {teamMembers.map((_, i) => (
-            <span
-              key={i}
-              className={`team-dot ${i === current ? 'is-active' : ''}`}
-            />
-          ))}
         </div>
         <button
-          className="team-arrow"
+          className="team-arrow team-arrow-next"
           onClick={() => handleManualNav('next')}
           aria-label="Próximo membro"
           type="button"
@@ -108,6 +100,14 @@ export default function TeamCarousel() {
           <ChevronRight size={22} strokeWidth={1.5} />
         </button>
       </div>
+      <div className="team-indicators">
+          {teamMembers.map((_, i) => (
+            <span
+              key={i}
+              className={`team-dot ${i === current ? 'is-active' : ''}`}
+            />
+          ))}
+        </div>
     </div>
   );
 }
