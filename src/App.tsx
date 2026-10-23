@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Menu, X, Instagram, Linkedin, Music2 } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Menu, X, Instagram, Linkedin } from 'lucide-react';
 import logoAgencia from './logo_png.png';
 import ContactForm from '@/components/ContactForm';
 import TeamCarousel from '@/components/TeamCarousel';
@@ -43,6 +43,14 @@ const services = [
   { title: 'Tráfego Pago & Orgânico', detail: 'Performance orientada por dados e intenção.' },
   { title: 'Branding & Conteúdo', detail: 'Marcas consistentes, desejadas e memoráveis.' },
 ];
+
+function BehanceIcon() {
+  return (
+    <svg viewBox="0 0 32 20" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M2 2h7.2c3.5 0 5.8 1.5 5.8 4.2 0 1.5-.8 2.7-2.2 3.4 1.9.6 3 1.9 3 3.8 0 3.1-2.5 4.6-6.2 4.6H2V2Zm4 3.1v3.1h2.8c1.4 0 2.1-.5 2.1-1.6s-.7-1.5-2.1-1.5H6Zm0 6.1v3.7h3.2c1.5 0 2.4-.6 2.4-1.9s-.9-1.8-2.4-1.8H6ZM23.1 5.8c4 0 6.2 2.8 6.2 6.8v.8h-9.6c.2 1.8 1.3 2.8 3 2.8 1.2 0 2.2-.5 2.7-1.5h3.6c-.8 2.3-3 3.7-6.3 3.7-4.3 0-6.9-2.5-6.9-6.3s2.9-6.3 7.3-6.3Zm-3.3 5h5.6c-.3-1.5-1.1-2.4-2.7-2.4-1.6 0-2.6.8-2.9 2.4ZM21.1 2h5v1.8h-5V2Z" />
+    </svg>
+  );
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -91,7 +99,7 @@ function App() {
         <div className="menu-footer">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram"><Instagram size={22} strokeWidth={1.5} /></a>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn"><Linkedin size={22} strokeWidth={1.5} /></a>
-          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Behance"><Music2 size={22} strokeWidth={1.5} /></a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Behance"><BehanceIcon /></a>
         </div>
       </div>
 
@@ -156,9 +164,13 @@ function App() {
             </div>
           </div>
           <div className="contact-bottom">
-            <span>São Paulo · Brasil</span>
-            <span>© 2026 Applause Marketing</span>
-            <span>Estratégia que merece aplauso</span>
+            <span className="footer-copyright">© 2026 Applause Marketing</span>
+            <div className="footer-socials" aria-label="Redes sociais">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram"><Instagram size={20} strokeWidth={1.5} /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn"><Linkedin size={20} strokeWidth={1.5} /></a>
+              <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Behance"><BehanceIcon /></a>
+            </div>
+            <span className="footer-tagline">Estratégia que merece aplauso</span>
           </div>
         </section>
       </main>
