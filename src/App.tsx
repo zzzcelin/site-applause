@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUpRight, Menu, X, Instagram, Linkedin, Music2 } from 'lucide-react';
 import logoAgencia from './logo_png.png';
 import ContactForm from '@/components/ContactForm';
+import TeamCarousel from '@/components/TeamCarousel';
 
 
 const projects = [
@@ -113,14 +114,7 @@ function App() {
 
         <section id="about" className="about section-pad">
           <div className="section-label"><span>02</span><span>Sobre nós</span></div>
-          <div className="about-grid">
-            <h2>Parceiros para<br /><span>crescer com propósito.</span></h2>
-            <div className="about-text">
-              <p className="large-copy">A Applause Marketing é a parceira estratégica de marcas que querem avançar com clareza, relevância e impacto.</p>
-              <p>Unimos estratégia, criatividade e inteligência de dados para construir caminhos consistentes de crescimento — do posicionamento à performance.</p>
-              <a className="text-link" href="#contact">Conheça nosso jeito <ArrowUpRight size={17} strokeWidth={1.3} /></a>
-            </div>
-          </div>
+          <TeamCarousel />
         </section>
 
         <section className="awards section-pad">
@@ -145,7 +139,7 @@ function App() {
                 <span className="contact-seal-dot" />
                 <span>Atendimento digital em todo território nacional</span>
               </div>
-              <a href="mailto:contato@applause.com" className="contact-link">contato@applause.com <ArrowUpRight size={26} strokeWidth={1.2} /></a>
+              <a href="mailto:contato@applause.com" className="contact-link contact-link-below">contato@applause.com <ArrowUpRight size={26} strokeWidth={1.2} /></a>
             </div>
             <div className="contact-form-col">
               <ContactForm />
