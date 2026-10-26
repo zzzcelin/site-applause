@@ -62,52 +62,58 @@ export default function TeamCarousel() {
 
   return (
     <div className="team-carousel">
-      <div className="team-stage">
-        <button
-          className="team-arrow team-arrow-prev"
-          onClick={() => handleManualNav('prev')}
-          aria-label="Membro anterior"
-          type="button"
-        >
-          <ChevronLeft size={22} strokeWidth={1.5} />
-        </button>
-        <div className="team-slide" key={current}>
+      <div className="team-shell" key={current}>
         <div className="team-photo-col">
           <div className="team-photo-wrap">
             <img src={member.image} alt={member.name} className="team-photo" />
-            <span className="team-role-badge">{member.role}</span>
           </div>
         </div>
-        <div className="team-info-col">
-          <p className="team-eyebrow">Nossa História</p>
-          <h3 className="team-name">{member.name}</h3>
-          {member.bio.map((paragraph, i) => (
-            <p className="team-bio" key={i}>{paragraph}</p>
-          ))}
-          <div className="team-tags">
-            {member.tags.map((tag) => (
-              <span className="team-tag" key={tag}>{tag}</span>
+        <article className="team-info-col">
+          <div className="team-info-header">
+            <p className="team-eyebrow">Nossa História</p>
+            <h3 className="team-name">{member.name}</h3>
+            <p className="team-role">{member.role}</p>
+          </div>
+          <div className="team-bio-block">
+            {member.bio.map((paragraph, i) => (
+              <p className={`team-bio ${i === 0 ? 'team-bio-lead' : ''}`} key={i}>{paragraph}</p>
             ))}
           </div>
-        </div>
-        </div>
-        <button
-          className="team-arrow team-arrow-next"
-          onClick={() => handleManualNav('next')}
-          aria-label="Próximo membro"
-          type="button"
-        >
-          <ChevronRight size={22} strokeWidth={1.5} />
-        </button>
+          <div className="team-card-footer">
+            <div className="team-tags">
+              {member.tags.map((tag) => (
+                <span className="team-tag" key={tag}>{tag}</span>
+              ))}
+            </div>
+            <div className="team-card-controls">
+              <button
+                className="team-arrow"
+                onClick={() => handleManualNav('prev')}
+                aria-label="Membro anterior"
+                type="button"
+              >
+                <ChevronLeft size={18} strokeWidth={1.5} />
+              </button>
+              <button
+                className="team-arrow"
+                onClick={() => handleManualNav('next')}
+                aria-label="Próximo membro"
+                type="button"
+              >
+                <ChevronRight size={18} strokeWidth={1.5} />
+              </button>
+            </div>
+          </div>
+        </article>
       </div>
-      <div className="team-indicators">
-          {teamMembers.map((_, i) => (
-            <span
-              key={i}
-              className={`team-dot ${i === current ? 'is-active' : ''}`}
-            />
-          ))}
-        </div>
+      <div className="team-indicators" aria-label="Profissional ativo">
+        {teamMembers.map((_, i) => (
+          <span
+            key={i}
+            className={`team-dot ${i === current ? 'is-active' : ''}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
