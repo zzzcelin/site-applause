@@ -50,24 +50,11 @@ export default function TeamCarousel() {
     else next();
   };
 
-  const [isReady, setIsReady] = useState(false);
-
   useEffect(() => {
-    if (document.readyState === 'complete') {
-      setIsReady(true);
-    } else {
-      const onLoad = () => setIsReady(true);
-      window.addEventListener('load', onLoad, { once: true });
-      return () => window.removeEventListener('load', onLoad);
-    }
-  }, []);
-
-
-  useEffect(() => {
-    if (!isReady || isPaused) return;
+    if (isPaused) return;
     const interval = window.setInterval(() => next(), 6000);
     return () => window.clearInterval(interval);
-  }, [isReady, isPaused, next]);
+  }, [isPaused, next]);
 
   const member = teamMembers[current];
 
