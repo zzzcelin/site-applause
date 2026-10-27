@@ -87,7 +87,7 @@ function App() {
         </div>
       </header>
 
-      <div className={`menu-panel ${menuOpen ? 'is-open' : ''}`}>
+      <div className={`menu-panel ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
         <div className="menu-top">
           <img src={logoAgencia} alt="Applause Marketing" className="menu-logo" />
           <button className="menu-close" type="button" onClick={closeMenu} aria-label="Fechar menu">
@@ -96,9 +96,11 @@ function App() {
         </div>
         <p className="eyebrow">Navegação / 001</p>
         <nav className="menu-links" aria-label="Menu principal">
-          <a href="#about" onClick={closeMenu}>Sobre a Applause <span>01</span></a>
-          <a href="#work" onClick={closeMenu}>Cases <span>02</span></a>
-          <a href="#contact" onClick={closeMenu}>Contato <span>03</span></a>
+          <a href="#top" onClick={closeMenu}>Início <span>01</span></a>
+          <a href="#about" onClick={closeMenu}>Sobre nós <span>02</span></a>
+          <a href="#services" onClick={closeMenu}>Serviços <span>03</span></a>
+          <a href="#work" onClick={closeMenu}>Portfólio <span>04</span></a>
+          <a href="#contact" onClick={closeMenu}>Vamos conversar <span>05</span></a>
         </nav>
         <div className="menu-footer">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram"><Instagram size={22} strokeWidth={1.5} /></a>
@@ -137,7 +139,7 @@ function App() {
           <TeamCarousel />
         </section>
 
-        <section className="awards section-pad">
+        <section id="services" className="awards section-pad">
           <div className="section-label light"><span>03</span><span>Serviços</span></div>
           <div className="awards-heading"><h2>Soluções que<br /><em>geram impacto.</em></h2><span className="award-count">05 frentes</span></div>
           <div className="award-list">{services.map(({ title, detail }, index) => <div className="award-row" key={title}><span>0{index + 1}</span><strong>{title}</strong><small>{detail}</small><ArrowUpRight size={18} strokeWidth={1.2} /></div>)}</div>
