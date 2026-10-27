@@ -87,12 +87,13 @@ function App() {
         </a>
         <div className="header-meta">
           <span>São Paulo / Brasil</span>
-          <button className="menu-toggle" type="button" onClick={() => setMenuOpen(true)} aria-label="Abrir menu">
-            <Menu size={19} strokeWidth={1.5} />
-            <span>Menu</span>
-          </button>
         </div>
       </header>
+
+      <button className="menu-toggle" type="button" onClick={() => setMenuOpen(true)} aria-label="Abrir menu">
+        <Menu size={19} strokeWidth={1.5} />
+        <span>Menu</span>
+      </button>
 
       <div className={`menu-panel ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
         <div className="menu-top">
