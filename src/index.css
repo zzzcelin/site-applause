@@ -22,7 +22,7 @@ button { font: inherit; }
 @keyframes pulse { 0%, 100% { opacity: .3; transform: scale(.97); } 50% { opacity: 1; transform: scale(1); } }
 
 /* ── Site header — NO backdrop-filter (would trap fixed children) ── */
-.site-header { height: 80px; position: fixed; z-index: 200; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 6vw, 96px); color: #f3f2ed; background: rgba(17, 18, 17, .97); border-bottom: 1px solid rgba(255, 196, 0, .12); }
+.site-header { height: 80px; position: absolute; z-index: 200; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 6vw, 96px); color: #f3f2ed; background: rgba(17, 18, 17, .97); border-bottom: 1px solid rgba(255, 196, 0, .12); }
 .wordmark { display: flex; flex-direction: column; gap: 6px; font-size: 21px; line-height: .82; font-weight: 700; letter-spacing: .02em; }
 .wordmark span { align-self: center; color: #ffc400; font: 8px 'DM Mono', monospace; letter-spacing: .34em; line-height: 1; }
 .header-meta { display: flex; gap: 34px; align-items: center; font-size: 9px; letter-spacing: .08em; font-family: 'DM Mono', monospace; text-transform: uppercase; }
@@ -299,6 +299,19 @@ em { color: #ffc400; font-family: 'Manrope', sans-serif; font-style: normal; fon
   .project-info { flex-direction: column; gap: 7px; }
   .project-info > span { text-align: left; }
   .contact-headline { font-size: 42px; }
-  .menu-toggle { right: 16px; }
-  .menu-close { right: 16px; }
+}
+
+/* The header scrolls away; only the standalone menu control stays fixed. */
+.menu-toggle,
+button[aria-label="Toggle menu"],
+header button {
+  position: fixed !important;
+  top: 14px !important;
+  right: 40px !important;
+  z-index: 9999 !important;
+}
+
+.site-header span,
+.header-meta {
+  margin-right: 60px !important;
 }
