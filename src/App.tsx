@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { ArrowDown, ArrowUpRight, Menu, X, Instagram, Linkedin } from 'lucide-react';
 import logoAgencia from './logo_png.png';
 import ContactForm from '@/components/ContactForm';
-import TeamCarousel from '@/components/TeamCarousel';
+
+const TeamCarousel = lazy(() => import('@/components/TeamCarousel'));
 
 
 const projects = [
@@ -130,7 +131,9 @@ function App() {
               <a className="text-link" href="#contact">CONHEÇA NOSSO JEITO <ArrowUpRight size={17} strokeWidth={1.3} /></a>
             </div>
           </div>
-          <TeamCarousel />
+          <Suspense fallback={<div style={{ height: 400 }} />}>
+            <TeamCarousel />
+          </Suspense>
         </section>
 
         <section className="awards section-pad">
