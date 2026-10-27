@@ -61,6 +61,13 @@ function App() {
     return () => window.clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   if (isLoading) {
     return (
       <div className="intro-screen" role="status" aria-label="Carregando Applause Marketing">
