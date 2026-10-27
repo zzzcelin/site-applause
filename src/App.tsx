@@ -57,19 +57,23 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setIsLoading(false), 1700);
+    const timer = window.setTimeout(() => setIsLoading(false), 2500);
     return () => window.clearTimeout(timer);
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="intro-screen" role="status" aria-label="Carregando Applause Marketing">
+        <div className="intro-mark">APPLAUSE</div>
+        <p>Agência de Marketing</p>
+      </div>
+    );
+  }
 
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <div className="site-shell">
-      <div className={`intro-screen ${isLoading ? 'is-visible' : 'is-hidden'}`} aria-hidden={!isLoading}>
-        <div className="intro-mark">APPLAUSE</div>
-        <p>Agência de Marketing</p>
-      </div>
-
       <header className="site-header">
         <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Applause Marketing">
           APPLAUSE<span>MARKETING</span>
